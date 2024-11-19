@@ -1,0 +1,39 @@
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+  /* position: relative; */
+}
+
+.carousel-inner {
+  display: flex;
+  width: 300%;
+  --carousel-width: 100%;
+  transition: transform 0.5s ease;
+  /* transform: translateX(100px); */
+}
+
+img {
+  width: 100%;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Space between dots */
+  margin-top: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: lightgray;
+  border-radius: 50%; /* Makes them circular */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none; /* Remove underline */
+}
+
+.dot.active {
+  background-color: black; /* Highlight the active slide */
+}

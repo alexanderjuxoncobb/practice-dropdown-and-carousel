@@ -6,15 +6,25 @@ const webpack = require('webpack')
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    templateCarousel: './src/templateCarousel.js'
+  },
   output: {
-    filename: 'main.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/template.html'
+      template: './src/template.html',
+      filename: 'index.html',
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/templateCarousel.html',
+      filename: 'templateCarousel.html',
+      chunks: ['templateCarousel']
     }),
     new webpack.HotModuleReplacementPlugin() // Add HMR plugin
   ],
